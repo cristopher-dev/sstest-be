@@ -11,7 +11,7 @@ export class TableData2 {
   @Column({ type: 'varchar', length: 50, nullable: true })
   T2C2: string;
 
-  @Column({ type: 'int' })
+  @Column({ type: 'int', nullable: true })
   T2C3: number;
 
   @Column({ type: 'datetime' })

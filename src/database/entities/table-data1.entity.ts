@@ -8,10 +8,10 @@ export class TableData1 {
   @Column({ type: 'int' })
   T1C1: number;
 
-  @Column({ type: 'varchar', length: 100 })
+  @Column({ type: 'varchar', length: 50 })
   T1C2: string;
 
-  @Column({ type: 'int' })
+  @Column({ type: 'int', nullable: true })
   T1C3: number;
 
   @Column({ type: 'datetime', nullable: true })

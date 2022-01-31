@@ -4,7 +4,5 @@ import { ComponentModule } from './component/component.module';
 
 @Module({
   imports: [DatabaseModule, ComponentModule],
-  controllers: [],
-  providers: [],
 })
 export class AppModule {}

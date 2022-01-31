@@ -16,30 +16,30 @@ export class TableData3Controller {
   constructor(private readonly tableData3Service: TableData3Service) {}
 
   @Post()
-  create(@Body() createTableData3Dto: CreateTableData3Dto) {
-    return this.tableData3Service.create(createTableData3Dto);
+  async create(@Body() createTableData3Dto: CreateTableData3Dto) {
+    return await this.tableData3Service.create(createTableData3Dto);
   }
 
   @Get()
-  findAll() {
-    return this.tableData3Service.findAll();
+  async findAll() {
+    return await this.tableData3Service.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.tableData3Service.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return await this.tableData3Service.findOne(+id);
   }
 
   @Patch(':id')
-  update(
+  async update(
     @Param('id') id: string,
     @Body() updateTableData3Dto: UpdateTableData3Dto,
   ) {
-    return this.tableData3Service.update(+id, updateTableData3Dto);
+    return await this.tableData3Service.update(+id, updateTableData3Dto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.tableData3Service.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.tableData3Service.remove(+id);
   }
 }

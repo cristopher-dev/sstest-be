@@ -11,23 +11,23 @@ export class TableData1Service {
     private tableData1Repository: Repository<any>,
   ) {}
 
-  create(createTableData1Dto: CreateTableData1Dto) {
-    return 'This action adds a new tableData1';
+  async create(createTableData1Dto: CreateTableData1Dto) {
+    return await this.tableData1Repository.save(createTableData1Dto);
   }
 
-  findAll() {
-    return `This action returns all tableData1`;
+  async findAll() {
+    return await this.tableData1Repository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} tableData1`;
+  async findOne(id: number) {
+    return await this.tableData1Repository.findOne(id);
   }
 
-  update(id: number, updateTableData1Dto: UpdateTableData1Dto) {
-    return `This action updates a #${id} tableData1`;
+  async update(id: number, updateTableData1Dto: UpdateTableData1Dto) {
+    return await this.tableData1Repository.update(id, updateTableData1Dto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} tableData1`;
+  async remove(id: number) {
+    return await this.tableData1Repository.delete(id);
   }
 }

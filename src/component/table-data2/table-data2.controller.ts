@@ -16,30 +16,30 @@ export class TableData2Controller {
   constructor(private readonly tableData2Service: TableData2Service) {}
 
   @Post()
-  create(@Body() createTableData2Dto: CreateTableData2Dto) {
-    return this.tableData2Service.create(createTableData2Dto);
+  async create(@Body() createTableData2Dto: CreateTableData2Dto) {
+    return await this.tableData2Service.create(createTableData2Dto);
   }
 
   @Get()
-  findAll() {
-    return this.tableData2Service.findAll();
+  async findAll() {
+    return await this.tableData2Service.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.tableData2Service.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return await this.tableData2Service.findOne(+id);
   }
 
   @Patch(':id')
-  update(
+  async update(
     @Param('id') id: string,
     @Body() updateTableData2Dto: UpdateTableData2Dto,
   ) {
-    return this.tableData2Service.update(+id, updateTableData2Dto);
+    return await this.tableData2Service.update(+id, updateTableData2Dto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.tableData2Service.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.tableData2Service.remove(+id);
   }
 }

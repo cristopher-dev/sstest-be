@@ -1,9 +1,16 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import { Repository } from 'typeorm';
+
 import { CreateTableData1Dto } from '../dto/create-table-data1.dto';
 import { UpdateTableData1Dto } from '../dto/update-table-data1.dto';
 
 @Injectable()
 export class TableData1Service {
+  constructor(
+    @Inject('TABLE_DATA1_REPOSITORY')
+    private tableData1Repository: Repository<any>,
+  ) {}
+
   create(createTableData1Dto: CreateTableData1Dto) {
     return 'This action adds a new tableData1';
   }

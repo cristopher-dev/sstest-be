@@ -12,22 +12,42 @@ export class TableData2Service {
   ) {}
 
   async create(createTableData2Dto: CreateTableData2Dto) {
-    return await this.tableData2Repository.save(createTableData2Dto);
+    try {
+      return await this.tableData2Repository.save(createTableData2Dto);
+    } catch (error) {
+      return error.message;
+    }
   }
 
   async findAll() {
-    return await this.tableData2Repository.find();
+    try {
+      return await this.tableData2Repository.find();
+    } catch (error) {
+      return error.message;
+    }
   }
 
   async findOne(id: number) {
-    return await this.tableData2Repository.findOne(id);
+    try {
+      return await this.tableData2Repository.findOne(id);
+    } catch (error) {
+      return error.message;
+    }
   }
 
   async update(id: number, updateTableData2Dto: UpdateTableData2Dto) {
-    return await this.tableData2Repository.update(id, updateTableData2Dto);
+    try {
+      return await this.tableData2Repository.update(id, updateTableData2Dto);
+    } catch (error) {
+      return error.message;
+    }
   }
 
   async remove(id: number) {
-    return await this.tableData2Repository.delete(id);
+    try {
+      return await this.tableData2Repository.delete(id);
+    } catch (error) {
+      return error.message;
+    }
   }
 }

@@ -1,12 +1,14 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+
+import { TableType } from './table-type.entity';
 
 @Entity()
 export class TableStructure {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'int' })
-  TableTypeId: string;
+  @ManyToOne((type) => TableType, (TableType) => TableType.columns)
+  fkTableType: number;
 
   @Column({ type: 'varchar', length: 20 })
   header: string;

@@ -10,9 +10,9 @@ export class TableType {
   @Column({ type: 'varchar', length: 30 })
   name: string;
 
-  // @OneToMany(
-  //   (type) => TableStructure,
-  //   (TableStructure) => TableStructure.TableTypeId,
-  // )
-  // photos: TableStructure[];
+  @OneToMany(
+    (type) => TableStructure,
+    (TableStructure) => TableStructure.fkTableType,
+  )
+  columns: TableStructure[];
 }

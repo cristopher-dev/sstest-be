@@ -6,9 +6,6 @@ export class TableStructureService {
   constructor(
     @Inject('TABLE_TYPE_REPOSITORY')
     private tableType: Repository<any>,
-
-    @Inject('TABLE_STRUCTURE_REPOSITORY')
-    private tableStructure: Repository<any>,
   ) {}
 
   async getTables() {
@@ -16,6 +13,6 @@ export class TableStructureService {
   }
 
   async getTableDetail() {
-    return await this.tableStructure.find();
+    return await this.tableType.find({ relations: ['columns'] });
   }
 }

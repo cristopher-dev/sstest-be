@@ -5,20 +5,26 @@ import { TableType } from './table-type.entity';
 @Entity()
 export class TableStructure {
   @PrimaryGeneratedColumn()
-  id: number;
+  readonly id: number;
 
   @ManyToOne((type) => TableType, (TableType) => TableType.columns)
-  fkTableType: number;
+  readonly fkTableType: number;
 
   @Column({ type: 'varchar', length: 20 })
-  header: string;
+  readonly header: string;
 
   @Column({ type: 'varchar', length: 10 })
-  dataType: string | number;
+  readonly dataType: string | number;
 
   @Column({ type: 'varchar', length: 20, nullable: true })
-  format: string;
+  readonly format: string;
 
-  @Column({ type: 'bit' })
-  required: boolean;
+  @Column({
+    type: 'bit',
+    transformer: {
+      to: (v) => v,
+      from: (v: Buffer) => (v.readInt8(0) ? true : false),
+    },
+  })
+  readonly required: boolean;
 }

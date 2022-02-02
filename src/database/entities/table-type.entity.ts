@@ -5,14 +5,14 @@ import { TableStructure } from './table-structure.entity';
 @Entity()
 export class TableType {
   @PrimaryGeneratedColumn()
-  id: number;
+  readonly id: number;
 
   @Column({ type: 'varchar', length: 30 })
-  name: string;
+  readonly name: string;
 
   @OneToMany(
     (type) => TableStructure,
     (TableStructure) => TableStructure.fkTableType,
   )
-  columns: TableStructure[];
+  readonly columns: TableStructure[];
 }

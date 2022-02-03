@@ -11,7 +11,7 @@ import { TableData1Service } from './service/table-data1.service';
 import { CreateTableData1Dto } from './dto/create-table-data1.dto';
 import { UpdateTableData1Dto } from './dto/update-table-data1.dto';
 
-@Controller('table-data1')
+@Controller('tabla-1')
 export class TableData1Controller {
   constructor(private readonly tableData1Service: TableData1Service) {}
 

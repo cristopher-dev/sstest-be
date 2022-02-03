@@ -11,7 +11,7 @@ import { TableData3Service } from './service/table-data3.service';
 import { CreateTableData3Dto } from './dto/create-table-data3.dto';
 import { UpdateTableData3Dto } from './dto/update-table-data3.dto';
 
-@Controller('table-data3')
+@Controller('tabla-3')
 export class TableData3Controller {
   constructor(private readonly tableData3Service: TableData3Service) {}
 

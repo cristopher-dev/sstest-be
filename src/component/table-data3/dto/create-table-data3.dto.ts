@@ -1,8 +1,7 @@
 import { IsNumber, IsNotEmpty, IsString, IsDate } from 'class-validator';
-export class CreateTableData3Dto {
-  @IsNumber()
-  id: number;
+import { Type } from 'class-transformer';
 
+export class CreateTableData3Dto {
   @IsNumber()
   @IsNotEmpty()
   T3C1: number;
@@ -12,6 +11,7 @@ export class CreateTableData3Dto {
   T3C2: string;
 
   @IsDate()
+  @Type(() => Date)
   @IsNotEmpty()
   T3C3: string;
 }

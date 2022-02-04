@@ -5,12 +5,11 @@ import {
   IsDate,
   IsOptional,
 } from 'class-validator';
+import { Type } from 'class-transformer';
+
 import { ITableData1 } from '../interface/table-data1.interface';
 
 export class CreateTableData1Dto implements ITableData1 {
-  @IsNumber()
-  id: number;
-
   @IsNumber()
   @IsNotEmpty()
   T1C1: number;
@@ -24,6 +23,7 @@ export class CreateTableData1Dto implements ITableData1 {
   T1C3: number;
 
   @IsDate()
+  @Type(() => Date)
   @IsOptional()
   T1C4: string;
 }

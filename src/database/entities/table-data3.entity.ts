@@ -13,21 +13,6 @@ export class TableData3 {
 
   @Column({
     type: 'datetime',
-    transformer: {
-      to: (v) => {
-        const msg = 'T3C3 el formato de fecha es "HH:mm:ss ejemplo 2022-01-01';
-
-        try {
-          const date = new Date(v).toISOString();
-          const isDate = date.toLowerCase().includes('invalid');
-          if (isDate) throw msg;
-          return date;
-        } catch (error) {
-          throw msg;
-        }
-      },
-      from: (v) => v,
-    },
   })
   T3C3: string;
 }

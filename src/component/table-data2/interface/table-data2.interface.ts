@@ -1,5 +1,4 @@
 export interface ITableData2 {
-  id: number;
   T2C1: number;
   T2C2: string;
   T2C3: number;

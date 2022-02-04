@@ -1,14 +1,7 @@
-import {
-  IsNumber,
-  IsNotEmpty,
-  IsString,
-  IsDate,
-  IsOptional,
-} from 'class-validator';
-export class CreateTableData2Dto {
-  @IsNumber()
-  id: number;
+import { IsNumber, IsNotEmpty, IsString, IsDate } from 'class-validator';
+import { Type } from 'class-transformer';
 
+export class CreateTableData2Dto {
   @IsNumber()
   @IsNotEmpty()
   T2C1: number;
@@ -20,6 +13,7 @@ export class CreateTableData2Dto {
   T2C3: number;
 
   @IsDate()
+  @Type(() => Date)
   @IsNotEmpty()
   T2C4: string;
 

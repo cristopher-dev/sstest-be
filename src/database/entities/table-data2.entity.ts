@@ -16,22 +16,6 @@ export class TableData2 {
 
   @Column({
     type: 'datetime',
-    transformer: {
-      to: (v) => {
-        const msg =
-          'T2C4 el formato de fecha es YYYY-DD-MM HH:mm:ss ejemplo 2022-01-01';
-
-        try {
-          const date = new Date(v).toISOString();
-          const isDate = date.toLowerCase().includes('invalid');
-          if (isDate) throw msg;
-          return date;
-        } catch (error) {
-          throw msg;
-        }
-      },
-      from: (v) => v,
-    },
   })
   T2C4: string;
 

@@ -8,14 +8,12 @@ import {
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateTableData1Dto } from './create-table-data1.dto';
 import { ITableData1 } from '../interface/table-data1.interface';
+import { Type } from 'class-transformer';
 
 export class UpdateTableData1Dto
   extends PartialType(CreateTableData1Dto)
   implements ITableData1
 {
-  @IsNumber()
-  id: number;
-
   @IsNumber()
   @IsNotEmpty()
   T1C1: number;
@@ -29,6 +27,7 @@ export class UpdateTableData1Dto
   T1C3: number;
 
   @IsDate()
+  @Type(() => Date)
   @IsOptional()
   T1C4: string;
 }

@@ -15,7 +15,7 @@ export class TableData2Service {
     try {
       return await this.tableData2Repository.save(createTableData2Dto);
     } catch (error) {
-      return error.message;
+      return error;
     }
   }
 
@@ -39,7 +39,7 @@ export class TableData2Service {
     try {
       return await this.tableData2Repository.update(id, updateTableData2Dto);
     } catch (error) {
-      return error.message;
+      return error;
     }
   }
 

@@ -14,7 +14,26 @@ export class TableData2 {
   @Column({ type: 'int', nullable: true })
   T2C3: number;
 
-  @Column({ type: 'datetime' })
+  @Column({
+    type: 'datetime',
+    transformer: {
+      to: (v) => {
+        const msg =
+          'T2C4 el formato de fecha es YYYY-DD-MM HH:mm:ss ejemplo 2022-01-01';
+
+        if (isNaN(v)) throw msg;
+
+        const date = new Date(v).toISOString();
+
+        const isDate = date.toLowerCase().includes('invalid');
+
+        if (isDate) throw msg;
+
+        return date;
+      },
+      from: (v) => v,
+    },
+  })
   T2C4: string;
 
   @Column({ type: 'int' })

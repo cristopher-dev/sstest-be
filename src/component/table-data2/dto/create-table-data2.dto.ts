@@ -7,9 +7,11 @@ export class CreateTableData2Dto {
   T2C1: number;
 
   @IsString()
+  @IsNotEmpty()
   T2C2: string;
 
   @IsNumber()
+  @IsNotEmpty()
   T2C3: number;
 
   @IsDate()

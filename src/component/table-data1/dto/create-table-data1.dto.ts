@@ -19,11 +19,13 @@ export class CreateTableData1Dto implements ITableData1 {
   T1C2: string;
 
   @IsNumber()
+  @IsNotEmpty()
   @IsOptional()
   T1C3: number;
 
   @IsDate()
   @Type(() => Date)
   @IsOptional()
+  @IsNotEmpty()
   T1C4: string;
 }

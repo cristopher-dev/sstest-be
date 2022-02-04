@@ -35,7 +35,7 @@ export class TableData1Service {
     }
   }
 
-  async update(id: number, updateTableData1Dto: UpdateTableData1Dto) {
+  async update(id: number, updateTableData1Dto) {
     try {
       return await this.tableData1Repository.update(id, updateTableData1Dto);
     } catch (error) {

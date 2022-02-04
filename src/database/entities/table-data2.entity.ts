@@ -21,15 +21,14 @@ export class TableData2 {
         const msg =
           'T2C4 el formato de fecha es YYYY-DD-MM HH:mm:ss ejemplo 2022-01-01';
 
-        if (isNaN(v)) throw msg;
-
-        const date = new Date(v).toISOString();
-
-        const isDate = date.toLowerCase().includes('invalid');
-
-        if (isDate) throw msg;
-
-        return date;
+        try {
+          const date = new Date(v).toISOString();
+          const isDate = date.toLowerCase().includes('invalid');
+          if (isDate) throw msg;
+          return date;
+        } catch (error) {
+          throw msg;
+        }
       },
       from: (v) => v,
     },

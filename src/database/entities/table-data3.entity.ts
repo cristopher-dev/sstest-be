@@ -17,15 +17,14 @@ export class TableData3 {
       to: (v) => {
         const msg = 'T3C3 el formato de fecha es "HH:mm:ss ejemplo 2022-01-01';
 
-        if (isNaN(v)) throw msg;
-
-        const date = new Date(v).toISOString();
-
-        const isDate = date.toLowerCase().includes('invalid');
-
-        if (isDate) throw msg;
-
-        return date;
+        try {
+          const date = new Date(v).toISOString();
+          const isDate = date.toLowerCase().includes('invalid');
+          if (isDate) throw msg;
+          return date;
+        } catch (error) {
+          throw msg;
+        }
       },
       from: (v) => v,
     },

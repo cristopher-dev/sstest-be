@@ -4,9 +4,9 @@ import { IsNumber, IsNotEmpty, IsString, IsDate } from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class UpdateTableData2Dto extends PartialType(CreateTableData2Dto) {
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
-  T2C1: number;
+  T2C1: string;
 
   @IsString()
   @IsNotEmpty()

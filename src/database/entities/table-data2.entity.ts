@@ -6,7 +6,7 @@ export class TableData2 {
   id: number;
 
   @Column({ type: 'int' })
-  T2C1: number;
+  T2C1: string;
 
   @Column({ type: 'varchar', length: 50, nullable: true })
   T2C2: string;

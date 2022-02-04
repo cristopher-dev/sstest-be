@@ -4,8 +4,9 @@ import { IsNumber, IsNotEmpty, IsString, IsDate } from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class UpdateTableData3Dto extends PartialType(CreateTableData3Dto) {
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
+  @Type((v): any => parseInt(v.object[v.property]))
   T3C1: number;
 
   @IsString()

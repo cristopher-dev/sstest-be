@@ -14,17 +14,19 @@ export class UpdateTableData1Dto
   extends PartialType(CreateTableData1Dto)
   implements ITableData1
 {
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
+  @Type((v): any => parseInt(v.object[v.property]))
   T1C1: number;
 
   @IsNotEmpty()
   @IsString()
   T1C2: string;
 
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
   @IsOptional()
+  @Type((v): any => parseInt(v.object[v.property]))
   T1C3: number;
 
   @IsDate()

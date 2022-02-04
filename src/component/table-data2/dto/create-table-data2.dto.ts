@@ -10,8 +10,9 @@ export class CreateTableData2Dto {
   @IsNotEmpty()
   T2C2: string;
 
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
+  @Type((v): any => parseInt(v.object[v.property]))
   T2C3: number;
 
   @IsDate()
@@ -19,7 +20,8 @@ export class CreateTableData2Dto {
   @IsNotEmpty()
   T2C4: string;
 
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
+  @Type((v): any => parseInt(v.object[v.property]))
   T2C5: number;
 }

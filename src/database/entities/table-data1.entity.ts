@@ -19,6 +19,7 @@ export class TableData1 {
     nullable: true,
     transformer: {
       to: (v) => {
+        if (!v) return v;
         const msg = 'T1C4 el formato de fecha es YYYY-MM-DD ejemplo 2022-01-01';
 
         try {

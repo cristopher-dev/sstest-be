@@ -1,8 +1,10 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
+import * as moment from 'moment';
 
 import { CreateTableData1Dto } from '../dto/create-table-data1.dto';
 import { UpdateTableData1Dto } from '../dto/update-table-data1.dto';
+import { ITableData1 } from '../interface/table-data1.interface';
 
 @Injectable()
 export class TableData1Service {
@@ -13,7 +15,8 @@ export class TableData1Service {
 
   async create(createTableData1Dto: CreateTableData1Dto) {
     try {
-      return await this.tableData1Repository.save(createTableData1Dto);
+      const data = await this.tableData1Repository.save(createTableData1Dto);
+      return this.formatDate(null, data);
     } catch (error) {
       return error;
     }
@@ -21,7 +24,8 @@ export class TableData1Service {
 
   async findAll() {
     try {
-      return await this.tableData1Repository.find();
+      const data: ITableData1[] = await this.tableData1Repository.find();
+      return this.formatDate(data);
     } catch (error) {
       return error.message;
     }
@@ -29,7 +33,10 @@ export class TableData1Service {
 
   async findOne(id: number) {
     try {
-      return await this.tableData1Repository.findOne(id);
+      const data: ITableData1 = await this.tableData1Repository.findOne(id);
+      if (!data) throw 'error';
+
+      return this.formatDate(null, data);
     } catch (error) {
       return error.message;
     }
@@ -49,5 +56,30 @@ export class TableData1Service {
     } catch (error) {
       return error.message;
     }
+  }
+
+  formatDate(dataArray: ITableData1[], dataObject?: ITableData1) {
+    const format = 'YYYY-MM-DD';
+
+    if (dataObject) {
+      if (moment(dataObject.T1C4).isValid()) {
+        dataObject.T1C4 = dataObject.T1C4 = moment(dataObject.T1C4).format(
+          format,
+        );
+      }
+
+      return dataObject;
+    }
+
+    if (dataArray) {
+      dataArray.forEach((value) => {
+        if (moment(value.T1C4).isValid()) {
+          value.T1C4 = moment(value.T1C4).format(format);
+        }
+      });
+      return dataArray;
+    }
+
+    return dataArray || dataObject;
   }
 }

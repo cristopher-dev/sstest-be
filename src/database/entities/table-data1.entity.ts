@@ -18,5 +18,5 @@ export class TableData1 {
     type: 'datetime',
     nullable: true,
   })
-  T1C4: Date;
+  T1C4: string;
 }

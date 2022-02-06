@@ -20,3 +20,7 @@
 - port del servidor 3000
 - por efecto practico esta activado cors pero no se debe utilizar para production
 - cors esta activo para que se puede hacer llamada de cualquier puerto en desarrollo
+
+## endpoint api rest
+
+- url : https://documenter.getpostman.com/view/9520790/UVeGrkud

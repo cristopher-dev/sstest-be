@@ -2,7 +2,7 @@
 
 - clone el repositorio
 - git clone url
-- se esta utilizado dos ramas master y dev
+- hay dos ramas master y dev
 
 ## sql siga las instrucciones paso a paso
 

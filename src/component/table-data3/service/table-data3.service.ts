@@ -61,9 +61,7 @@ export class TableData3Service {
 
     if (dataObject) {
       if (moment(dataObject.T3C3).isValid()) {
-        dataObject.T3C3 = dataObject.T3C3 = moment(dataObject.T3C3).format(
-          format,
-        );
+        dataObject.T3C3 = moment(dataObject.T3C3).format(format);
       }
 
       return dataObject;
